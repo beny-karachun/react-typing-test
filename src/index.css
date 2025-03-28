@@ -1,0 +1,41 @@
+/* src/index.css */
+
+/* Apply border-box sizing globally for more intuitive layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default body margin and ensure full height for layout */
+html,
+body,
+#root { /* #root is the typical ID for the React mount point */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set base font properties and rendering hints */
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Keep a modern sans-serif stack */
+  line-height: 1.5; /* Reasonable default line height */
+  font-weight: 400;
+
+  /* Font rendering optimizations (often included by default) */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  /* Set a base background color (optional, can complement component styles) */
+  /* Using the same background as TypingTest.css's .container for consistency */
+  background-color: #f4f7f9;
+}
+
+/* You can remove any :root variables for colors/fonts if not used globally */
+/* :root { ... } */
+
+/* Remove any default media query prefers-color-scheme styles if not needed */
+/* @media (prefers-color-scheme: light) { ... } */

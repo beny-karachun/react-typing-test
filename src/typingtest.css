@@ -1,0 +1,241 @@
+/* === Existing Styles (Mostly Unchanged) === */
+
+/* Overall container */
+.container {
+  background-color: #f4f7f9;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+/* Header layout and elements */
+.header {
+  width: 95%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+.header-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Allow button wrapping */
+  gap: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.header .header-text {
+  text-align: center;
+  width: 100%;
+}
+
+.header h1 {
+  margin: 0 0 5px 0;
+  font-size: 26px;
+  font-weight: 400;
+  color: #333;
+}
+
+.header p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Button base style */
+.header button,
+.text-input button {
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap; /* Prevent button text wrapping */
+ }
+
+.header button:hover,
+.text-input button:hover {
+  background-color: #0056b3;
+}
+ .header button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+ }
+
+
+/* Text input overlay */
+.text-input {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 25px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin-top: 10px;
+}
+
+.text-input textarea {
+  width: 100%;
+  height: 200px;
+  font-size: 16px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  margin-bottom: 15px;
+}
+
+/* Content area below header */
+.content {
+  width: 95%;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Metrics container */
+#metricsContainer {
+  width: 100%;
+  background: #fff;
+  padding: 15px 20px;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px 30px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+#metricsContainer span {
+  margin: 0;
+  color: #444;
+  white-space: nowrap;
+}
+ .finished-indicator {
+    font-weight: bold;
+    color: #2ecc71;
+ }
+
+
+/* === Text Container and Character Styles (with RTL additions) === */
+
+#fullTextContainer {
+  width: 100%;
+  height: 55vh;
+  overflow-y: auto;
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  font-size: 20px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  outline: none;
+}
+
+/* Default LTR text alignment */
+#fullTextContainer.ltr {
+  text-align: left;
+}
+
+/* RTL text alignment */
+#fullTextContainer.rtl {
+  text-align: right;
+}
+
+/* Individual character spans */
+#fullTextContainer span {
+  cursor: default;
+  display: inline;
+  border-radius: 2px;
+  /* Ensure clicks work even on empty spans if needed, though not typical */
+  /* min-width: 1px;
+  min-height: 1em; */
+}
+
+/* Correct/incorrect styling */
+.correct {
+  color: #2ecc71;
+}
+.incorrect {
+  color: #e74c3c;
+  background-color: #fdedec;
+  text-decoration: underline;
+  text-decoration-color: #e74c3c;
+  text-decoration-thickness: 1px;
+}
+
+/* Current character indicator (blinking underline) - works for both LTR/RTL */
+.current {
+border-bottom: 2px solid #3498db;
+padding-bottom: 1px;
+animation: blink-underline 1s steps(2, start) infinite;
+}
+@keyframes blink-underline {
+to { border-bottom-color: transparent; }
+}
+
+
+/* End-of-text cursor (vertical bar) */
+.cursor-end {
+  display: inline-block;
+  width: 1px; /* Minimal width */
+  height: 1.2em; /* Approx height */
+  vertical-align: bottom;
+  animation: blink-bar 1s steps(2, start) infinite;
+}
+
+/* LTR: Bar on the left */
+#fullTextContainer.ltr .cursor-end {
+  border-left: 2px solid #3498db;
+  margin-left: -1px; /* Overlap slightly */
+  margin-right: 1px; /* Ensure space after */
+}
+
+/* RTL: Bar on the right */
+#fullTextContainer.rtl .cursor-end {
+  border-right: 2px solid #3498db; /* Change border side */
+  margin-right: -1px; /* Overlap slightly */
+  margin-left: 1px; /* Ensure space before */
+}
+
+
+@keyframes blink-bar {
+  to { border-left-color: transparent; border-right-color: transparent; }
+}
+
+/* --- Textarea RTL --- */
+.text-input textarea[dir="rtl"] {
+  text-align: right;
+}

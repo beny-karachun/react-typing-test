@@ -1,0 +1,25 @@
+/* src/App.css */
+
+/*
+ * This file is intentionally minimal after removing default Vite demo styles.
+ * Most application-specific styles are handled within component CSS files (e.g., TypingTest.css).
+ * You can add global application layout styles here if needed, perhaps for the .App container itself.
+ */
+
+/* #root { */
+  /* Example: If you wanted max-width and centering on the absolute root */
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+/* } */
+
+.App {
+  /* If you need styles for the direct wrapper div in App.jsx, add them here */
+  /* For instance, to ensure it takes full height if its children don't */
+   min-height: 100%;
+   display: flex; /* Use flex to make children (like .container) easily managed */
+   flex-direction: column;
+}
+
+
+/* Removed all default Vite styles related to logo, counter, buttons, read-the-docs, etc. */
